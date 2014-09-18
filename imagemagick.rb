@@ -21,13 +21,13 @@ class Imagemagick < Formula
   option "with-jp2", "Compile with Jpeg2000 support"
   option "enable-hdri", "Compile with HDRI support"
 
-  # depends_on "libtool" => :run
+  depends_on "libtool" => :run
 
-  # depends_on "pkg-config" => :build
+  depends_on "pkg-config" => :build
 
-  # depends_on "jpeg" => :recommended
-  # depends_on "libpng" => :recommended
-  # depends_on "freetype" => :recommended
+  depends_on "jpeg" => :recommended
+  depends_on "libpng" => :recommended
+  depends_on "freetype" => :recommended
 
   depends_on :x11 => :optional
   depends_on "fontconfig" => :optional
@@ -42,7 +42,7 @@ class Imagemagick < Formula
   depends_on "webp" => :optional
   depends_on "homebrew/versions/openjpeg21" if build.with? "jp2"
 
-  # depends_on "xz"
+  depends_on "xz"
 
   opoo "--with-ghostscript is not recommended" if build.with? "ghostscript"
 
