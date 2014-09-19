@@ -15,4 +15,4 @@ class LuajitRocks < Formula
   end
 end
 
-cmake .. -DCMAKE_INSTALL_PREFIX=/work/arives/luarocks-install -DCMAKE_BUILD_TYPE=Release -DINSTALL_LUAROCKS_ROCKS_SUBDIR=/work/arives/luarocks-tree
+#cmake .. -DCMAKE_INSTALL_PREFIX=/work/arives/luarocks-install -DCMAKE_BUILD_TYPE=Release -DINSTALL_LUAROCKS_ROCKS_SUBDIR=/work/arives/luarocks-tree
