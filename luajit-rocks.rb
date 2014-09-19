@@ -7,7 +7,12 @@ class LuajitRocks < Formula
   # depends_on "cmake" => :build
 
   def install
-    system "cmake", "-DCMAKE_INSTALL_PREFIX=#{prefix}"
+    system "cmake", "-DCMAKE_INSTALL_PREFIX=/work/arives/luarocks",
+                    "-DCMAKE_BUILD_TYPE=Release"
+
+    # system "cmake", "-DCMAKE_INSTALL_PREFIX=#{prefix}"
     system "make install"
   end
 end
+
+cmake .. -DCMAKE_INSTALL_PREFIX=/work/arives/luarocks-install -DCMAKE_BUILD_TYPE=Release -DINSTALL_LUAROCKS_ROCKS_SUBDIR=/work/arives/luarocks-tree
