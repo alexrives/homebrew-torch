@@ -16,10 +16,6 @@ class Libtool < Formula
 
   def install
     ENV.universal_binary if build.universal?
-    # system "./configure", "--disable-dependency-tracking",
-    #                       "--prefix=#{prefix}",
-    #                       "--program-prefix=g",
-    #                       "--enable-ltdl-install"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-ltdl-install"
@@ -27,6 +23,6 @@ class Libtool < Formula
   end
 
   test do
-    system "#{bin}/glibtool", 'execute', '/usr/bin/true'
+    system "#{bin}/libtool", 'execute', '/usr/bin/true'
   end
 end

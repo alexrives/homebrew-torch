@@ -1,79 +1,22 @@
 homebrew-torch
 ==============
 
-    # imagemagick dependencies:
-    xz, libtool, libpng, freetype
+A set of homebrew formulas to install the torch7 dependencies
+on the digs with [linuxbrew](https://github.com/Homebrew/linuxbrew).
 
-    brew link libtool --force
-    brew link libpng --force
-    brew link freetype --force
+To install linuxbrew:
 
-    # the following only works after linking as above, edit the formulas appropriately
-    brew install imagemagick
+    $ git clone https://github.com/Homebrew/linuxbrew.git ~/.linuxbrew"
 
-    # we already have gnuplot so try skipping that for now
+    # Add the following to ~/.bash_profile
 
-    # need to unlink readline
-    brew unlink readline
+    $ emacs ~/.bash_profile
 
-    # need to setup:
-    C_INCLUDE_PATH="$HOME/.linuxbrew/include:$C_INCLUDE_PATH"
+    export PATH=\"$HOME/.linuxbrew/bin:$PATH"
+    export LD_LIBRARY_PATH=\"$HOME/.linuxbrew/lib:$LD_LIBRARY_PATH\"
+    export C_INCLUDE_PATH=\"$HOME/.linuxbrew/include:$C_INCLUDE_PATH\"
 
-    # then run
+To install torch7 and dependencies:
 
-    git clone https://github.com/torch/luajit-rocks.git
-    cd luajit-rocks
-    mkdir build
-    cd build
-    cmake .. -DCMAKE_INSTALL_PREFIX=/work/arives/local
-
-    make install
-
-
-    curl -s https://raw.githubusercontent.com/torch/ezinstall/master/install-luajit+torch | bash
-
-
-
-
-
-    # libtool
-
-    In order to prevent conflicts with Apple's own libtool we have prepended a "g"
-    so, you have instead: glibtool and glibtoolize.
-
-    This formula is keg-only, which means it was not symlinked into /gpfs/DS3524-1/WORK/arives/.linuxbrew.
-
-    Xcode provides this software prior to version 4.3.
-
-    Generally there are no consequences of this for you. If you build your
-    own software and it requires this formula, you'll need to add to your
-    build variables:
-
-    LDFLAGS:  -L/gpfs/DS3524-1/WORK/arives/.linuxbrew/opt/libtool/lib
-    CPPFLAGS: -I/gpfs/DS3524-1/WORK/arives/.linuxbrew/opt/libtool/include
-
-    # libpng
-
-    This formula is keg-only, which means it was not symlinked into /gpfs/DS3524-1/WORK/arives/.linuxbrew.
-
-    Mac OS X already provides this software in versions before Mountain Lion.
-
-    Generally there are no consequences of this for you. If you build your
-    own software and it requires this formula, you'll need to add to your
-    build variables:
-
-    LDFLAGS:  -L/gpfs/DS3524-1/WORK/arives/.linuxbrew/opt/libpng/lib
-    CPPFLAGS: -I/gpfs/DS3524-1/WORK/arives/.linuxbrew/opt/libpng/include
-
-    # freetype
-
-    This formula is keg-only, which means it was not symlinked into /gpfs/DS3524-1/WORK/arives/.linuxbrew.
-
-    Mac OS X already provides this software in versions before Mountain Lion.
-
-    Generally there are no consequences of this for you. If you build your
-    own software and it requires this formula, you'll need to add to your
-    build variables:
-
-    LDFLAGS:  -L/gpfs/DS3524-1/WORK/arives/.linuxbrew/opt/freetype/lib
-    CPPFLAGS: -I/gpfs/DS3524-1/WORK/arives/.linuxbrew/opt/freetype/include
+    curl -s https://raw.githubusercontent.com/alexrives/torch-install/master/install-deps | bash
+    curl -s https://raw.githubusercontent.com/alexrives/torch-install/master/install-luajit+torch | bash
