@@ -16,6 +16,19 @@ To install linuxbrew:
     export LD_LIBRARY_PATH=\"$HOME/.linuxbrew/lib:$LD_LIBRARY_PATH\"
     export C_INCLUDE_PATH=\"$HOME/.linuxbrew/include:$C_INCLUDE_PATH\"
 
+Luarocks is used as the package manager. Packages will be installed at:
+
+    $HOME/.luarocks
+
+    # Add the following to ~/.bash_profile
+
+    $ emacs ~/.bash_profile
+
+    export PATH=\"$HOME/.luarocks/bin:$PATH"
+    export LD_LIBRARY_PATH=\"$HOME/.luarocks/lib:$LD_LIBRARY_PATH\"
+    export C_INCLUDE_PATH=\"$HOME/.luarocks/include:$C_INCLUDE_PATH\"
+    
+
 To install torch7 and dependencies:
 
     curl -s https://raw.githubusercontent.com/alexrives/torch-install/master/install-deps | bash

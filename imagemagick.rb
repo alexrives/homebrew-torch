@@ -57,14 +57,6 @@ class Imagemagick < Formula
              "--without-pango",
              "--with-modules"]
 
-    # args = [ "--prefix=#{prefix}",
-    #          "--disable-dependency-tracking",
-    #          "--enable-shared",
-    #          "--disable-static",
-    #          "--without-pango",
-    #          "--with-modules",
-    #          "--disable-openmp"]
-
     args << "--disable-opencl" if build.include? "disable-opencl"
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--without-perl" if build.without? "perl"
