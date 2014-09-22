@@ -66,12 +66,14 @@ class Hdf5 < Formula
     #   ENV["FC"] = "mpif90"
     # end
 
-    # system "cmake", ".",  *std_cmake_args
+    system "cmake", ".",  *std_cmake_args
 
-    resource("cmake_config").stage(target=buildpath)
-    resource("cmake_testscript").stage(target=buildpath)
+    system "cmake", ".", "-DCMAKE_INSTALL_PREFIX:PATH=#{installpath}", "-DHDF5_PACKAGE_EXTLIBS:BOOL=ON", "-DCMAKE_BUILD_TYPE:String=Release"
 
-    system "ctest -S HDF518LinuxCMake.cmake -C Release -VV -O hdf5.log"
+    # resource("cmake_config").stage(target=buildpath)
+    # resource("cmake_testscript").stage(target=buildpath)
+
+    # system "ctest -S HDF518LinuxCMake.cmake -C Release -VV -O hdf5.log"
     #
     # system "./configure", *args
     # system "make", "install"
