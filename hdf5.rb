@@ -6,15 +6,15 @@ class Hdf5 < Formula
   # mirror "https://distfiles.macports.org/hdf5-18/hdf5-1.8.13.tar.bz2"
   sha1 "712955025f03db808f000d8f4976b8df0c0d37b5"
 
-  # resource "cmake_config" do
-  #     url "http://www.hdfgroup.org/ftp/HDF5/current/cmake/HDF518LinuxCMake.cmake"
-  #   #   sha1 ""
-  # end
-  #
-  # resource "cmake_testscript" do
-  #   url "http://www.hdfgroup.org/ftp/HDF5/current/cmake/CTestScript.cmake"
-  #   # sha1 ""
-  # end
+  resource "cmake_config" do
+      url "http://www.hdfgroup.org/ftp/HDF5/current/cmake/HDF518LinuxCMake.cmake"
+    #   sha1 ""
+  end
+
+  resource "cmake_testscript" do
+    url "http://www.hdfgroup.org/ftp/HDF5/current/cmake/CTestScript.cmake"
+    # sha1 ""
+  end
 
 
   # TODO - warn that these options conflict
@@ -66,12 +66,12 @@ class Hdf5 < Formula
     #   ENV["FC"] = "mpif90"
     # end
 
-    system "cmake", ".",  *std_cmake_args
+    # system "cmake", ".",  *std_cmake_args
 
-    # resource("cmake_config").stage(target=buildpath)
-    # resource("cmake_testscript").stage(target=buildpath)
-    #
-    # system "ctest -S <configuration file> -C Release -VV -O hdf5.log"
+    resource("cmake_config").stage(target=buildpath)
+    resource("cmake_testscript").stage(target=buildpath)
+
+    system "ctest -S HDF518LinuxCMake.cmake -C Release -VV -O hdf5.log"
     #
     # system "./configure", *args
     # system "make", "install"
