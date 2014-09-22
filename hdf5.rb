@@ -66,9 +66,9 @@ class Hdf5 < Formula
     #   ENV["FC"] = "mpif90"
     # end
 
-    system "cmake", ".",  *std_cmake_args
+    # system "cmake", ".",  *std_cmake_args
 
-    system "cmake", ".", "-DCMAKE_INSTALL_PREFIX:PATH=#{installpath}", "-DHDF5_PACKAGE_EXTLIBS:BOOL=ON", "-DCMAKE_BUILD_TYPE:String=Release"
+    system "cmake", ".", "-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}", "-DHDF5_PACKAGE_EXTLIBS:BOOL=ON", "-DCMAKE_BUILD_TYPE:String=Release"
 
     # resource("cmake_config").stage(target=buildpath)
     # resource("cmake_testscript").stage(target=buildpath)
