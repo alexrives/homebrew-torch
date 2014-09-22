@@ -70,7 +70,7 @@ class Hdf5 < Formula
 
     system "cmake", ".", "-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}", "-DHDF5_PACKAGE_EXTLIBS:BOOL=ON", "-DCMAKE_BUILD_TYPE:String=Release"
 
-    system "./HDF5-1.8.13-Linux.sh"
+    system "bash HDF5-1.8.13-Linux.sh"
 
     # resource("cmake_config").stage(target=buildpath)
     # resource("cmake_testscript").stage(target=buildpath)
